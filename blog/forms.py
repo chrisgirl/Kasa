@@ -37,7 +37,7 @@ class SignInForm(forms.Form):
     }))
 
 
-class AddForm(forms.Form):
+class BlogForm(forms.Form):
     title = forms.CharField(max_length=250, required=True, widget=forms.TextInput(attrs={
         "class": "form-control",
         "data - validation - required - message": "Please enter your name.",
