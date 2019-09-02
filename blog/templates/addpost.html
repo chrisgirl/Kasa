@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block header %}
+  <header class="masthead" style="background-image: url('/static/img/new.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Add a Post</h1>
+            <span class="subheading">Have a new story to share? Its easy.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+{% endblock header %}
+{% block content %}
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p> Fill out the form below to send a post to your viewers as soon as possible!</p>
+        <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+        <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+        <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+        <form action="{% url 'blog:add_view' %}" method="POST" name="sentMessage" id="contactForm" >
+
+          {% csrf_token %}
+
+
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Title</label>
+                  {{post.title}}
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Summary</label>
+              {{post.subtext}}
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+              <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Category</label>
+              {{post.category}}
+              <p class="help-block text-danger"></p>
+            </div>
+          <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+              <label>Message</label>
+              {{post.content}}
+              <p class="help-block text-danger"></p>
+            </div>
+          </div>
+          <br>
+          <div id="success"></div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+{% endblock content %}
