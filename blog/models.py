@@ -13,7 +13,7 @@ class SignIn(models.Model):
     password = models.CharField(max_length=100)
 
 
-class Blog(models.Model):
+class Add(models.Model):
     title = models.CharField(max_length=200)
     subtext = models.CharField(max_length=250)
     category = models.CharField(max_length=250, default='Select')
