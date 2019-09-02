@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import SignIn, SignUp, ContactUs, Add, PostList
+from .models import SignIn, SignUp, ContactUs, Blog, PostList
 from .forms import SignInForm, SignUpForm, ContactUsForm, AddForm
 
 # Create your views here.

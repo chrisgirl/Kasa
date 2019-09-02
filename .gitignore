@@ -4,4 +4,6 @@ ve/*
 .idea/*
 *pyc
 *.*pyc
+*.pyc
+**/*.pyc
 
