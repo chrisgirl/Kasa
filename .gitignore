@@ -2,7 +2,15 @@ ve
 ve/*
 .idea/
 .idea/*
+<<<<<<< HEAD
 *.*pyc
 *.pyc
 *.*pyc
 *.pyc
+=======
+*pyc
+*.*pyc
+*.pyc
+**/*.pyc
+
+>>>>>>> 559c24331dabd26464f5cd9315187683fa128e6d

@@ -20,42 +20,35 @@
 
 {% endblock header %}
 {% block content %}
-{{ block.super }}
-<center>
-<table class="table table-bordered">
-    <thead class="thead-light">
-    <tr>
-<!--      <th scope="col">#</th>-->
-<!--      <th class="text-center" scope="col">Name</th>-->
-      <th class="text-center" scope="col">Title</th>
-      <th class="text-center" scope="col">Content</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% if all_posts %}
 
-        {% for post in all_posts %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for post in all_posts %}
 
        <tr>
-           <td><center>{{post.title}}</center></td>
+           <td>{{post.title}}</td>
 
-          <td><center><a href="{% url 'blog:delete_view' things.id %}">
+          <td><a href="{% url 'blog:delete_post' post.id %}">
               <button type="button"
                   class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
            </a>
            <a href="{% url 'blog:post_view' post.id %}">
                <button type="button"
                   class="btn btn-secondary btn-sm">View</button>
-           </a></center></td>
+           </a></td>
        </tr>
     {% endfor %}
-    </tbody>
-    </table>
-{% endif %}
 
-
-    </center>
-
+  </tbody>
+</table>
 {% endblock content %}
 {% block footer %}
   <footer>

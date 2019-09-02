@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import SignIn, SignUp, ContactUs, Blog, PostList
+<<<<<<< HEAD
 from .forms import SignInForm, SignUpForm, ContactUsForm, AddForm
+=======
+from .forms import SignInForm, SignUpForm, ContactUsForm, BlogForm
+>>>>>>> 559c24331dabd26464f5cd9315187683fa128e6d
 
 # Create your views here.
 
@@ -54,7 +58,8 @@ def contact_view(request):
 
 def post_list(request):
     template = 'postlist.html'
-    return render(request, template_name=template, context={'all_posts': PostList.objects.all()})
+    context = {'all_posts': Blog.objects.all()}
+    return render(request, template_name=template, context=context)
 
 
 def delete_post(request, post_id):
@@ -72,17 +77,22 @@ def post_view(request, post_id):
 
 def add_view(request):
     if request.method == 'POST':
-        post_form = AddForm(request.POST)
+        post_form = BlogForm(request.POST)
 
         if post_form.is_valid():
             new_post = Blog(title=post_form.cleaned_data['title'],
+<<<<<<< HEAD
                             subtext=post_form.cleaned_data['subtext'],
                             content=post_form.cleaned_data['content'])
+=======
+                           subtext=post_form.cleaned_data['subtext'],
+                           content=post_form.cleaned_data['content'])
+>>>>>>> 559c24331dabd26464f5cd9315187683fa128e6d
             new_post.save()
             messages.success(request, "Post Submitted!")
             return redirect('blog:post_list')
 
         messages.warning(request, "Error")
-    new_post = AddForm()
+    new_post = BlogForm()
     template = 'addpost.html'
     return render(request, template_name=template, context={"post": new_post})
