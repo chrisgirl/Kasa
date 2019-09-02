@@ -2,3 +2,7 @@ ve
 ve/*
 .idea/
 .idea/*
+*.*pyc
+*.pyc
+*.*pyc
+*.pyc

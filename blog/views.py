@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import SignIn, SignUp, ContactUs, Add, PostList
+from .models import SignIn, SignUp, ContactUs, Blog, PostList
 from .forms import SignInForm, SignUpForm, ContactUsForm, AddForm
 
 # Create your views here.
@@ -20,6 +20,7 @@ def register_view(request):
                                 email=register_form.cleaned_data['email'],
                                 password=register_form.cleaned_data['password'])
             new_signup.save()
+            messages.success(request, "SignUp Successful!")
     else:
         login_form = SignInForm()
         if request.method == 'POST':
@@ -28,8 +29,10 @@ def register_view(request):
                 new_login = SignIn(email=login_form.cleaned_data['email'],
                                    password=login_form.cleaned_data['password'])
                 new_login.save()
+                messages.success(request, "Login Successful!")
     context_object = {"register_form": SignUpForm, "login_form": SignInForm}
     return render(request, 'register.html', context=context_object)
+# postlist
 
 
 def contact_view(request):
@@ -72,9 +75,9 @@ def add_view(request):
         post_form = AddForm(request.POST)
 
         if post_form.is_valid():
-            new_post = Add(title=post_form.cleaned_data['title'],
-                           subtext=post_form.cleaned_data['subtext'],
-                           content=post_form.cleaned_data['content'])
+            new_post = Blog(title=post_form.cleaned_data['title'],
+                            subtext=post_form.cleaned_data['subtext'],
+                            content=post_form.cleaned_data['content'])
             new_post.save()
             messages.success(request, "Post Submitted!")
             return redirect('blog:post_list')
