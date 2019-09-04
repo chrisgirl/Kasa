@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Blog, ContactUs
 from django.contrib import messages
 from .forms import ContactUsForm
@@ -15,6 +15,16 @@ class IndexView(ListView):
 class BlogView(DetailView):
     model = Blog
     template_name = "blog/blog_detail.html"
+
+
+class AddBlogView(CreateView):
+    model = Blog
+    template_name = "blog/add_blog.html"
+    fields = ['blog_title', 'blog_content']
+
+    def form_valid(self, form):
+        form.instance.blog_author = self.request.user
+        return super().form_valid(form)
 
 
 def post_list(request):
