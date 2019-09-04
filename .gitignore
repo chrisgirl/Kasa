@@ -2,8 +2,12 @@ ve
 ve/*
 .idea/
 .idea/*
+<<<<<<< HEAD
 
 *pyc
 *.*pyc
 *.pyc
 **/*.pyc
+=======
+*.pyc
+>>>>>>> blog
