@@ -1,8 +1,8 @@
-<!doctype html>
+<!Doctype html>
 {% load static %}
+
 <html lang="en">
 <head>
-
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,25 +12,24 @@
   <title>Kasa</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'blog/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
 
   <!-- Custom fonts for this template -->
-  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="{% static 'blog/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
   <!-- Custom styles for this template -->
-  <link href="{%  static 'css/clean-blog.min.css' %}" rel="stylesheet">
+  <link href="{%  static 'blog/css/clean-blog.min.css' %}" rel="stylesheet">
 
   <!-- Register -->
           <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/font-awesome/css/font-awesome.min.css' %}">
-		<link rel="stylesheet" href="{% static 'assets/css/form-elements.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-
+        <link rel="stylesheet" href="{% static 'blog/assets/bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/assets/font-awesome/css/font-awesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'blog/assets/css/form-elements.css' %}">
+        <link rel="stylesheet" href="{% static 'blog/assets/css/style.css' %}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -39,41 +38,34 @@
         <![endif]-->
 
         <!-- Favicon and touch icons -->
-        <link rel="shortcut icon" href="{% static 'assets/ico/favicon.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'assets/ico/apple-touch-icon-144-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'assets/ico/apple-touch-icon-114-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'assets/ico/apple-touch-icon-72-precomposed.png' %}">
-        <link rel="apple-touch-icon-precomposed" href="{% static 'assets/ico/apple-touch-icon-57-precomposed.png' %}">
+        <link rel="shortcut icon" href="{% static 'blog/assets/ico/favicon.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'blog/assets/ico/apple-touch-icon-144-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'blog/assets/ico/apple-touch-icon-114-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'blog/assets/ico/apple-touch-icon-72-precomposed.png' %}">
+        <link rel="apple-touch-icon-precomposed" href="{% static 'blog/assets/ico/apple-touch-icon-57-precomposed.png' %}">
 
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="{% url 'blog:index' %}">KASA</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
+             <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-<!--          <li class="nav-item">-->
-<!--            <a class="nav-link" href="{% url 'blog:index' %}">Home</a>-->
-<!--          </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:register_view' %}">Register</a>
+            <a class="nav-link" href="#">Register</a>
           </li>
-
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:contact_view' %}">Contact</a>
+            <a class="nav-link" href="{% url 'blog:contact' %}">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
 
   <!-- Navigation -->
    {% block messages %}
@@ -98,23 +90,17 @@
     </div>
   {% endblock messages %}
 
-
+<br><br>
   <!-- Page Header -->
 {% block header%}
   {% endblock header %}
 
-<div class="row">
-<div class="col-md-2 col-lg-2">
 
-</div>
-<div class="col-md-10 col-lg-10">
   {% block content %}
 
   {% endblock content %}
-</div>
-</div>
 
-{% block footer %}
+
 <!-- Footer -->
   <footer>
     <div class="container">
@@ -151,23 +137,23 @@
       </div>
     </div>
   </footer>
-{% endblock footer %}
+
   <!-- Bootstrap core JavaScript -->
-  <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'blog/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'blog/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="{% static 'js/clean-blog.min.js' %}"></script>
+  <script src="{% static 'blog/js/clean-blog.min.js' %}"></script>
 
 <!--Register -->
         <!-- Javascript -->
-        <script src="{% static 'assets/js/jquery-1.11.1.min.js' %}"></script>
-        <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'assets/js/jquery.backstretch.min.js' %}"></script>
-        <script src="{% static 'assets/js/scripts.js' %}"></script>
+        <script src="{% static 'blog/assets/js/jquery-1.11.1.min.js' %}"></script>
+        <script src="{% static 'blog/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'blog/assets/js/jquery.backstretch.min.js' %}"></script>
+        <script src="{% static 'blog/assets/js/scripts.js' %}"></script>
 
         <!--[if lt IE 10]>
-            <script src="{% static 'assets/js/placeholder.js' %}"></script>
+            <script src="{% static 'blog/assets/js/placeholder.js' %}"></script>
         <![endif]-->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

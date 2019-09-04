@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "blog/base.html" %}
 {% block header %}
-  <header class="masthead" style="background-image: url('/static/img/home.jpg')">
+  <header class="masthead" style="background-image: url('blog/static/img/home.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -54,7 +54,7 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="{% url 'blog:register_view' %}" method="post" class="login-form">
+				                    <form role="form" action="#" method="post" class="login-form">
 										{% csrf_token %}
 				                    	<div class="form-group">
 				                    		<label class="sr-only" >Username</label>

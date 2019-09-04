@@ -1,33 +1,29 @@
-{% extends "base.html" %}
-{% block header %}
+{% extends "blog/base.html" %}
 
-{% endblock header%}
 
 {% block content %}
-  <!-- Post Content -->
-    <!-- Page Content -->
-
-          {% for post in post_view %}
+<br>
+  <!-- Page Content -->
   <div class="container">
 
-    <p class="row">
-
+    <div class="row">
+<a href="{% url 'blog:index' %}">Back to Home</a>
       <!-- Post Content Column -->
-      < class="col-lg-8">
+      <div class="col-lg-8">
 
         <!-- Title -->
-        <h1 class="mt-4">{{post.title}}</h1>
+        <h1 class="mt-4">{{object.blog_title}}</h1>
 
         <!-- Author -->
         <p class="lead">
           by
-          <a href="#">{{post.name}}</a>
+          <a href="#">{{object.blog_author}}</a>
         </p>
 
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on January 1, 2019 at 12:00 PM</p>
+        <p>Posted on {{object.blog_date}}</p>
 
         <hr>
 
@@ -36,11 +32,9 @@
 
         <hr>
 
-
-
         <!-- Post Content -->
-    <p class="lead">{{post.content}}</p>
-{% endfor %}
+        <p class="lead">{{object.blog_content|linebreaks}}</p>
+
 
         <hr>
 
@@ -145,13 +139,6 @@
           </div>
         </div>
 
-        <!-- Side Widget -->
-        <div class="card my-4">
-          <h5 class="card-header">Side Widget</h5>
-          <div class="card-body">
-            You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
-          </div>
-        </div>
 
       </div>
 
@@ -160,6 +147,4 @@
 
   </div>
   <!-- /.container -->
-  <hr>
-
 {% endblock content %}

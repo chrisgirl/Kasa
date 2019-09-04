@@ -1,0 +1,53 @@
+
+{% extends "blog/base.html" %}
+{% block header %}
+  <header class="masthead" style="background-image: url('static/blog/img/index.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>KASA</h1>
+            <span class="subheading">Sharing Stories. Changing Lives.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+{% endblock header%}
+
+{% block content %}
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+          {% for blog in blog_entries %}
+        <div class="post-preview">
+            <a href="{% url 'blog:index' %}">
+            <h2 class="post-title">
+              {{blog.blog_title}}
+            </h2>
+            <h3 class="post-subtitle">
+                {{blog.blog_content|truncatechars:100}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            <a href="#">{{blog.blog_author}}</a>
+             on {{blog.blog_date}}</p>
+        </div>
+        <hr>
+
+{% endfor %}
+        <!-- Pager -->
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{% url 'blog:blog_entries' %}">Older Posts &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+{% endblock content %}
