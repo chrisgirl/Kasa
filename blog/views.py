@@ -10,6 +10,16 @@ class IndexView(ListView):
     model = Blog
     template_name = "blog/index.html"
     context_object_name = "blog_entries"
+    ordering = ['-blog_date']
+    paginate_by = 2
+
+
+class PostListView(ListView):
+    model = Blog
+    template_name = 'blog/blog_list.html'
+    context_object_name = "blog_entries"
+    ordering = ['-blog_date']
+    paginate_by = 2
 
 
 class BlogView(DetailView):
@@ -27,10 +37,7 @@ class AddBlogView(CreateView):
         return super().form_valid(form)
 
 
-def post_list(request):
-    template = 'blog/blog_list.html'
-    context = {"blog_entries": Blog.objects.all()}
-    return render(request, template_name=template, context=context)
+
 
 
 def contact_view(request):
