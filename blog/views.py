@@ -37,9 +37,6 @@ class AddBlogView(CreateView):
         return super().form_valid(form)
 
 
-
-
-
 def contact_view(request):
     if request.method == 'POST':
         contact_form = ContactUsForm(request.POST)
