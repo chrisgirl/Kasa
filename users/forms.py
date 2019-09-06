@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 
 
-class RegistrationForm(UserCreationForm):
+class RegistrationForm(forms.Form):
     username = forms.CharField(max_length=250, required=True, widget=forms.TextInput(attrs={
         "class": "form-control my-input",
         "id": "form-username",
@@ -24,7 +24,7 @@ class RegistrationForm(UserCreationForm):
     password2 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={
         "class": 'form-control my-input',
         "name": "password",
-        "id": "password",
+        "id": "password2",
         "placeholder": "Confirm Password..."
     }))
 
