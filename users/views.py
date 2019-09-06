@@ -29,3 +29,21 @@ def register(request):
     else:
         form = RegistrationForm()
         return render(request, 'users/register.html', context={"form": form})
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            user = User()
+            user.email = email
+            user.set_password(raw_password)
+            new_user = authenticate(email=email, password1=raw_password)
+            if new_user is not None:
+                login(request, user)
+        return redirect('blog:blog_entries')
+    else:
+        form = RegistrationForm()
+        return render(request, 'users/register.html', context={"form": form})
