@@ -50,6 +50,16 @@
 
       <!-- Sidebar Widgets Column -->
       <div class="col-md-4">
+<!--        	<a href="{% url 'blog:blog_entries' %}">-->
+<!--											<button type="submit" class="btn">Add a Post</button></a>-->
+
+            <!-- Search Widget -->
+          <h5 class="card-header">Add a new post</h5>
+          <div class="card-body">
+            <a href="{% url 'blog:add_blog' %}">
+              <button class="btn btn-secondary" type="button">ADD!</button></a>
+            </div>
+
 
         <!-- Search Widget -->
         <div class="card my-4">
@@ -105,7 +115,6 @@
     <!-- /.row -->
 
   </div>
-	<a href="{% url 'blog:blog_entries' %}">
-											<button type="submit" class="btn">Add a Post</button></a>
+
   <!-- /.container -->
 {% endblock content %}
