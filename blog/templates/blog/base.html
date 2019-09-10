@@ -68,27 +68,7 @@
   </nav>
 {% endblock nav %}
   <!-- Navigation -->
-   {% block messages %}
-    <div class="row">
-        <div class="col-md-12">
-            {% if messages %}
-                {% for message in messages %}
-                  <div class="text-center font-weight-bold alert alert-dismissible fade show
-                       {% if message.level_tag == 'error' %}
-                       alert-danger
-                       {% else %}
-                       alert-{{ message.tags }}
-                       {% endif %}">
-                    {{ message }}
-                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                     </button>
-                  </div>
-                {% endfor %}
-              {% endif %}
-        </div>
-    </div>
-  {% endblock messages %}
+
 
 <br><br>
   <!-- Page Header -->
@@ -97,12 +77,13 @@
 
 
   {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'users:register' %}">login</a>
-{% endif %}
+<!--{% if user.is_authenticated %}-->
+<!--  Hi {{ user.username }}!-->
+<!--{% else %}-->
+<!--  <p>You are not logged in</p>-->
+<!--  <a href="{% url 'users:register' %}">login</a>-->
+<!--{% endif %}-->
+
 {% endblock content %}
 
 
