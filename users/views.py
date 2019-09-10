@@ -2,6 +2,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -20,9 +21,8 @@ def register(request):
             user.email = email
             user.set_password(raw_password)
             user.save()
-            #new_user = authenticate(username=username, email=email, password1=raw_password, password2=confirm_password)
-            #if new_user is not None:
             login(request, user)
+            messages.success(request, "Registration is successful")
             return redirect('blog:blog_entries')
         else:
             return render(request, 'users/register.html', context={"form": form})
@@ -38,11 +38,12 @@ def user_login(request):
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
             user = User()
-            user.email = email
-            user.set_password(raw_password)
-            new_user = authenticate(email=email, password1=raw_password)
-            if new_user is not None:
+            # user.email = email
+            # user.set_password(raw_password)
+            user = authenticate(email=email, password1=raw_password)
+            if user is None:
                 login(request, user)
+        messages.success(request, "Login successful!")
         return redirect('blog:blog_entries')
     else:
         form = RegistrationForm()

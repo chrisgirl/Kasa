@@ -47,7 +47,7 @@
 </head>
 
 <body>
-
+{% block nav %}
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="{% url 'blog:index' %}">KASA</a>
@@ -66,7 +66,7 @@
       </div>
     </div>
   </nav>
-
+{% endblock nav %}
   <!-- Navigation -->
    {% block messages %}
     <div class="row">
@@ -97,8 +97,13 @@
 
 
   {% block content %}
-
-  {% endblock content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'users:register' %}">login</a>
+{% endif %}
+{% endblock content %}
 
 
 <!-- Footer -->
